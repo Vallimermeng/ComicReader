@@ -12,7 +12,7 @@ struct ChapterView: View{
                     .padding()
                     .font(.title2)
                 
-                ForEach(comic.chapter, id: \.self ){chapterTitle in
+                ForEach(comic.chapter, id: \.self ){chapterTitle in // showing all chapters
                     VStack{
                         NavigationLink(destination: ComicReaderView(
                             comic: comic,
@@ -22,7 +22,9 @@ struct ChapterView: View{
                                         .padding()
                                     Image(systemName: "chevron.right")
                                         .foregroundColor(.gray)
-                                    
+                                    if(UserDefaults.standard.object(forKey: "\(comic.name) \(chapterTitle)") != nil){
+                                        Text("Стр. \(UserDefaults.standard.integer(forKey: "\(comic.name) \(chapterTitle)")+1)")
+                                    }
                                 }
                                 .background(Color.gray.opacity(0.1))
                                 .cornerRadius(50)
@@ -35,10 +37,13 @@ struct ChapterView: View{
                 
                 
             }
+            
         }
         
     }
 }
+
+
 
 
 #Preview {

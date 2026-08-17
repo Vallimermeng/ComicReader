@@ -24,6 +24,10 @@ struct ContentView: View {
             ScrollView{
                 
                 Text("Доступные комиксы")
+                NavigationLink(destination: FavoritesView(comics: comics)){
+                    Text("Посмотреть избранные")
+                        .font(.headline)
+                }
                 
                 ForEach(comics, id: \.name){ comic in
                     HStack{
@@ -32,7 +36,18 @@ struct ContentView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 200, height: 300)
-                            Text(comic.name)
+                            HStack{
+                                Text(comic.name)
+                                Button("Добавить в избранное"){
+                                    var favorites = UserDefaults.standard.stringArray(forKey: "favorite") ?? []
+                                    
+                                    if !favorites.contains(comic.name){
+                                        favorites.append(comic.name)
+                                        
+                                        UserDefaults.standard.set(favorites, forKey: "favorite")
+                                    }
+                                }
+                            }
                             NavigationLink(destination: ChapterView(comic: comic)){
                                 Text("Читать")
                                     .font(.headline)
@@ -41,7 +56,7 @@ struct ContentView: View {
                         }//vstack
                     }
                     
-                }
+                }//foreacb
 
             }//scrollview
            

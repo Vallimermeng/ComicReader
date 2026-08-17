@@ -9,6 +9,21 @@ struct ComicReaderView: View {
     
     
     var body: some View {
+        HStack(){
+            Button("Сохранить прогресс"){
+                UserDefaults.standard.set(numPages, forKey: "\(comic.name) \(chapter)")
+            }
+            .background(Color.gray.opacity(0.1))
+            .clipShape(.capsule)
+            
+            Button("Отменить прогресс"){
+                UserDefaults.standard.removeObject(forKey: "\(comic.name) \(chapter)")
+                numPages = 0
+            }
+            .background(Color.gray.opacity(0.1))
+            .clipShape(.capsule)
+        }
+        
         
         ZStack(alignment: .bottom){
             TabView(selection: $numPages){
@@ -32,10 +47,14 @@ struct ComicReaderView: View {
                 .background(.ultraThinMaterial)
                 .clipShape(.capsule)
             
+            
+            
         }
         .onAppear(){
             pages = comic.pages(for: chapter)
+            numPages = UserDefaults.standard.integer(forKey: "\(comic.name) \(chapter)")
         }
+        
     }
 
 }
@@ -65,7 +84,11 @@ func readComic(name: String, chapter: String) -> [URL] {
 
 
 #Preview {
-    ContentView()
+    ComicReaderView(comic:  Comic(
+        name: "Spider-Man",
+        cover: .SpiderMan.cover,
+        chapter: ["Amazing Spider-Man #001", "test"]),
+                    chapter: "Amazing Spider-Man #001")
 }
 
 
