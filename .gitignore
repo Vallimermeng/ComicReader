@@ -5,6 +5,7 @@ build/
 *.xcworkspace/
 .DS_Store
 
-# Пользовательские папки, которые не должны попадать в репозиторий
+# Пользовательские папки
 ComicReader/Comics/
 ComicReader/Assets.xcassets/Comics/
+Comics/
