@@ -9,7 +9,9 @@ struct ComicReaderView: View {
     
     
     var body: some View {
+        
         HStack(){
+            
             Button("Сохранить прогресс"){
                 UserDefaults.standard.set(numPages, forKey: "\(comic.name) \(chapter)")
             }
@@ -23,6 +25,8 @@ struct ComicReaderView: View {
             .background(Color.gray.opacity(0.1))
             .clipShape(.capsule)
         }
+
+        
         
         
         ZStack(alignment: .bottom){
@@ -54,12 +58,13 @@ struct ComicReaderView: View {
             pages = comic.pages(for: chapter)
             numPages = UserDefaults.standard.integer(forKey: "\(comic.name) \(chapter)")
         }
+        .background(.black)
         
     }
 
 }
 
-
+//TODO: replace for MVVP arch
 func readComic(name: String, chapter: String) -> [URL] {
     
     let bundle = Bundle.main.resourceURL!
@@ -81,14 +86,48 @@ func readComic(name: String, chapter: String) -> [URL] {
     }
 }
 
+func readChapters(name: String) -> [String]{
+    
+    let bundle = Bundle.main.resourceURL!
+    let search = bundle
+        .appendingPathComponent("Comics")
+        .appendingPathComponent(name)
+        
+        
+    var isDirectory: ObjCBool = false
+    
+    let exist = FileManager.default.fileExists(atPath: search.path(), isDirectory: &isDirectory)
+    
+  
+    
+    if(exist && isDirectory.boolValue){
+        do{
+            
+            let contents = try FileManager.default.contentsOfDirectory(
+                at: search,
+                includingPropertiesForKeys: nil
+            )
+
+            return contents
+                .map{$0.lastPathComponent}
+                .sorted()
+            
+        }catch{
+            print(error)
+        }
+    }
+    return []
+    
+}
 
 
 #Preview {
     ComicReaderView(comic:  Comic(
         name: "Spider-Man",
-        cover: .SpiderMan.cover,
-        chapter: ["Amazing Spider-Man #001", "test"]),
-                    chapter: "Amazing Spider-Man #001")
+        cover: .SpiderMan.cover
+    ),
+    chapter: "Amazing Spider-Man #001"
+    )
 }
 
 

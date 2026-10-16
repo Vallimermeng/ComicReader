@@ -12,24 +12,33 @@ struct ChapterView: View{
                     .padding()
                     .font(.title2)
                 
-                ForEach(comic.chapter, id: \.self ){chapterTitle in // showing all chapters
+                ForEach(comic.chapters(), id: \.self ){chapterTitle in // showing all chapters
                     VStack{
                         NavigationLink(destination: ComicReaderView(
                             comic: comic,
                             chapter: chapterTitle)){
                                 HStack{
+                                    
                                     Text(chapterTitle)
-                                        .padding()
+                                    Spacer()
+                                    
+                                   
+                                    if(UserDefaults.standard.object(forKey: "\(comic.name) \(chapterTitle)") != nil){
+                                        
+                                        Text("Стр. \(UserDefaults.standard.integer(forKey: "\(comic.name) \(chapterTitle)")+1)")
+                                        
+                                    }
                                     Image(systemName: "chevron.right")
                                         .foregroundColor(.gray)
-                                    if(UserDefaults.standard.object(forKey: "\(comic.name) \(chapterTitle)") != nil){
-                                        Text("Стр. \(UserDefaults.standard.integer(forKey: "\(comic.name) \(chapterTitle)")+1)")
-                                    }
                                 }
-                                .background(Color.gray.opacity(0.1))
+                                .padding()
+                                .background(.ultraThinMaterial)
                                 .cornerRadius(50)
                                 
+                                
+                                
                         }
+                            .padding(5)
                         
                     }
                     
@@ -47,9 +56,14 @@ struct ChapterView: View{
 
 
 #Preview {
-    ChapterView(comic:  Comic(
-        name: "Spider-Man",
-        cover: .SpiderMan.cover,
-        chapter: ["Amazing Spider-Man #001", "test"]
-    ))
+    ChapterView(
+        comic: Comic(
+            name: "Spider-Man",
+            cover: .SpiderMan.cover,
+            previewChapters: [
+                "Amazing Spider-Man #001",
+                "test"
+            ]
+        )
+    )
 }

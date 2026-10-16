@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF4FFBD93032F57B006F6BF7 /* Comics in Resources */ = {isa = PBXBuildFile; fileRef = CF4FFBD83032F57B006F6BF7 /* Comics */; };
+		CF71A39230344E6100724C0A /* Comics in Resources */ = {isa = PBXBuildFile; fileRef = CF71A39130344E6100724C0A /* Comics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CF4FFBD83032F57B006F6BF7 /* Comics */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Comics; sourceTree = "<group>"; };
+		CF71A39130344E6100724C0A /* Comics */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Comics; sourceTree = "<group>"; };
 		CFA06E4530319962005D288F /* ComicReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		CF6591BC303225E800F84F7D /* ComicReader */ = {
+		CFFB1DCC308283FC00EC233E /* ComicReader */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ComicReader;
 			sourceTree = "<group>";
@@ -37,9 +37,9 @@
 		CFA06E3C30319962005D288F = {
 			isa = PBXGroup;
 			children = (
-				CF4FFBD83032F57B006F6BF7 /* Comics */,
-				CF6591BC303225E800F84F7D /* ComicReader */,
 				CFA06E4630319962005D288F /* Products */,
+				CF71A39130344E6100724C0A /* Comics */,
+				CFFB1DCC308283FC00EC233E /* ComicReader */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,7 +67,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				CF6591BC303225E800F84F7D /* ComicReader */,
+				CFFB1DCC308283FC00EC233E /* ComicReader */,
 			);
 			name = ComicReader;
 			packageProductDependencies = (
@@ -115,7 +115,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF4FFBD93032F57B006F6BF7 /* Comics in Resources */,
+				CF71A39230344E6100724C0A /* Comics in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +184,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -241,7 +241,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -265,6 +265,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,6 +297,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
